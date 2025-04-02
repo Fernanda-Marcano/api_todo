@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.routers.api_router import taks_router
+from src.routers.api_router import task_router
 
 
 app = FastAPI()
@@ -11,4 +11,4 @@ app.version = '1.0.0'
 def home():
     return 'Hola'
 
-app.include_router(router=taks_router)
+app.include_router(router=task_router)

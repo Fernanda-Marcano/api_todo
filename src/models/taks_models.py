@@ -13,11 +13,18 @@ class StatusEnum(str, Enum):
     process = 'process'
     completed = 'completed'
 
-class TaksModel(BaseModel):
+class TaskModel(BaseModel):
     id: str 
     title: str = Field(min_length=5, max_length=50)
     description: Text = Field(min_length=5, max_length=200)
     status: StatusEnum = StatusEnum.pending
     created_at: datetime
     updated_at: Optional[datetime] = None
+
+
+class TaskUpdate(BaseModel):
+    title: str = Field(min_length=5, max_length=50)
+    description: Text = Field(min_length=5, max_length=200)
+    status: list[StatusEnum]
+    updated_at: datetime = datetime.now()
 
